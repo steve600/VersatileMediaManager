@@ -18,6 +18,8 @@ The application uses the following libraries:
 - [Microsoft EnterpriseLibrary](https://entlib.codeplex.com/) for the crosscutting-concerns (at the moment only the Logging Application Block is used)
 - [Newtonsoft Json.NET](http://www.newtonsoft.com/json) for the JSON serialization
 
+More informations about the structure of the project and some implementation details can be found in the [WIKI](https://github.com/steve600/VersatileMediaManager/wiki)
+
 Some will now be wondering: Why all these components for a simple media manager?
 
 Quite simply: Especially with some components (like Prism or the Microsoft Enterprise Library) I've only found examples that describes enterprise applications. Enterprise software is normally intended to solve an enterprise-wide problem like an Accounting-Software or Trading-Systems. In these kind of software you often has recurring problems like reusability, exchangeability, loosely coupled components, communication between loosely coupled components, logging, localization and so on. For these problems you can then use Prism or the Microsoft Enterprise Library.
