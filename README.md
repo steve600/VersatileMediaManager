@@ -28,8 +28,8 @@ Using these components can save you a lot of work and I just wanted to do someth
 
 Currently the application is at a very early development stage but the following features are already implemented:
 
-- General project structure and technical basis
-- UI based on MahApps.Metro with different Prism-Regions
+- General project structure and technical basis (more information: [WIKI](https://github.com/steve600/VersatileMediaManager/wiki/General-project-structure))
+- UI based on MahApps.Metro with different Prism-Regions (more information: [WIKI](https://github.com/steve600/VersatileMediaManager/wiki/Prism-Regions))
 - Localization as an application wide service so it's possible to localize in XAML and in the ViewModel
 - Logging based on the Logging Application Block of the Microsoft Enterprise Library
 - Connection management (for the different types of connections like JsonRpc, Database, ...)
