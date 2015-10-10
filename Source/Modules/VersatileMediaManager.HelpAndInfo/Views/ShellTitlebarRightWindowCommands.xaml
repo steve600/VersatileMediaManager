@@ -1,0 +1,38 @@
+﻿<StackPanel x:Class="VersatileMediaManager.HelpAndInfo.Views.ShellTitlebarRightWindowCommands"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:local="clr-namespace:VersatileMediaManager.HelpAndInfo.Views"
+            xmlns:inf="clr-namespace:VersatileMediaManager.Infrastructure;assembly=VersatileMediaManager.Infrastructure"
+            xmlns:prism="http://prismlibrary.com/"
+            prism:ViewModelLocator.AutoWireViewModel="True"
+            mc:Ignorable="d"
+            Orientation="Horizontal"
+            VerticalAlignment="Center"
+            d:DesignHeight="30" d:DesignWidth="300">
+
+    <Button Command="{x:Static inf:ApplicationCommands.ShowApplicationHelpCommand}"
+            ToolTip="Help">
+        <Rectangle Width="22"
+                   Height="22"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+            <Rectangle.OpacityMask>
+                <VisualBrush Stretch="Uniform"
+                             Visual="{StaticResource appbar_book_perspective_help}" />
+            </Rectangle.OpacityMask>
+        </Rectangle>
+    </Button>
+
+    <Button Command="{x:Static inf:ApplicationCommands.ShowApplicationInfoCommand}"
+            ToolTip="Info">
+        <Rectangle Width="22"
+                   Height="22"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+            <Rectangle.OpacityMask>
+                <VisualBrush Stretch="Uniform"
+                             Visual="{StaticResource appbar_information}" />
+            </Rectangle.OpacityMask>
+        </Rectangle>
+    </Button>
+</StackPanel>

@@ -1,0 +1,23 @@
+﻿<StackPanel x:Class="VersatileMediaManager.Shell.Views.ShellTitlebarLeftWindowsCommands"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:local="clr-namespace:VersatileMediaManager.Shell.Views"
+            xmlns:inf="clr-namespace:VersatileMediaManager.Infrastructure;assembly=VersatileMediaManager.Infrastructure"
+            mc:Ignorable="d"
+            VerticalAlignment="Center"
+            d:DesignHeight="300" d:DesignWidth="300">
+
+    <Button Command="{x:Static inf:ApplicationCommands.ShowOnGitHubCommand}"
+            ToolTip="VersatileMediaManager on GitHub">
+        <Rectangle Width="22"
+                   Height="22"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+            <Rectangle.OpacityMask>
+                <VisualBrush Stretch="Uniform"
+                             Visual="{StaticResource appbar_github}" />
+            </Rectangle.OpacityMask>
+        </Rectangle>
+    </Button>
+</StackPanel>

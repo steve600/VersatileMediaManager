@@ -1,0 +1,81 @@
+﻿<metro:Flyout x:Class="VersatileMediaManager.KodiManagement.Views.LibraryManagementTilesFyout"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:VersatileMediaManager.KodiManagement.Views"
+              xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+              xmlns:constants="clr-namespace:VersatileMediaManager.Infrastructure.Contracts.Constants;assembly=VersatileMediaManager.Infrastructure.Contracts"
+              xmlns:inf="clr-namespace:VersatileMediaManager.Infrastructure;assembly=VersatileMediaManager.Infrastructure"
+              xmlns:lex="http://wpflocalizeextension.codeplex.com"
+              lex:LocalizeDictionary.DesignCulture="de"
+              lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.KodiManagement"
+              lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+              Position="Right"
+              Theme="Accent"
+              AnimateOpacity="True"
+              Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=metro:MetroWindow}, Path=ActualWidth, Mode=OneWay}"
+              Header="{lex:Loc Key=LibraryManagementTilesFlyoutHeader}"
+              mc:Ignorable="d"
+              d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <!-- Icon -->
+            <Rectangle Width="28"
+                       Height="28"
+                       Fill="{DynamicResource AccentColorBrush}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill"
+                                 Visual="{StaticResource appbar_monitor_play}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+
+            <TextBlock Margin="5,0,0,0"
+                       Style="{DynamicResource TextBlockHeader2}"
+                       Text="{lex:Loc Key=KodiMediaPlayerManagement}" />
+        </StackPanel>
+
+        <Rectangle Grid.Row="1"
+                   Margin="2,3,80,3"
+                   HorizontalAlignment="Stretch"
+                   Fill="{DynamicResource AccentColorBrush}"
+                   Height="2" />
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top">
+            <!-- Movie-Management -->
+            <metro:Tile ContentTemplate="{StaticResource MovieManagementTileTemplate}"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Top"
+                        Command="{x:Static inf:ApplicationCommands.ShowFlyoutCommand}"
+                        CommandParameter="{x:Static constants:FlyoutNames.KodiMovieLibraryManagementFlyout}"
+                        TiltFactor="1"
+                        Width="200"
+                        Height="80" />
+            <metro:Tile ContentTemplate="{StaticResource MusicManagementTileTemplate}"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Top"
+                        Command="{x:Static inf:ApplicationCommands.ShowFlyoutCommand}"
+                        CommandParameter="{x:Static constants:FlyoutNames.KodiMovieLibraryManagementFlyout}"
+                        TiltFactor="1"
+                        Width="200"
+                        Height="80" />
+            <metro:Tile ContentTemplate="{StaticResource TvShowManagementTileTemplate}"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Top"
+                        Command="{x:Static inf:ApplicationCommands.ShowFlyoutCommand}"
+                        CommandParameter="{x:Static constants:FlyoutNames.KodiMovieLibraryManagementFlyout}"
+                        TiltFactor="1"
+                        Width="200"
+                        Height="80" />
+        </StackPanel>
+    </Grid>
+</metro:Flyout>

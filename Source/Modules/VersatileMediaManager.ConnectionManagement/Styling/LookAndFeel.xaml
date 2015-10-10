@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <!-- Tiles -->
+        <ResourceDictionary Source="/VersatileMediaManager.ConnectionManagement;component/Styling/Templates/Tiles.xaml" />
+
+        <!-- ListView -->
+        <ResourceDictionary Source="/VersatileMediaManager.ConnectionManagement;component/Styling/Templates/ListView.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

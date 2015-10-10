@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ImageSource x:Key="Kodi_Logo">/VersatileMediaManager.Styling;component/BitmapGraphics/Assets/Kodi_Logo.png</ImageSource>
+</ResourceDictionary>

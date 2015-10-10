@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="VersatileMediaManager.ConnectionManagement.UserControls.ConnectionEditControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:VersatileMediaManager.ConnectionManagement.UserControls"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:communication="clr-namespace:VersatileMediaManager.Communication.Interfaces;assembly=VersatileMediaManager.Communication"
+             lex:LocalizeDictionary.DesignCulture="de"
+             lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.ConnectionManagement"
+             lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+             x:Name="layoutRoot"
+             mc:Ignorable="d"
+             Width="400"
+             Height="250">
+
+    <UserControl.Resources>
+
+        <ObjectDataProvider x:Key="connectionKindsEnum"
+                            MethodName="GetNames" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="communication:ConnectionKindsEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="connectionTypesEnum"
+                            MethodName="GetNames" ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="communication:ConnectionTypesEnum" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+
+    <Grid DataContext="{Binding ElementName=layoutRoot}" Margin="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+        </Grid.RowDefinitions>
+
+        <!-- Connection-Kind -->
+        <TextBlock Grid.Row="0"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionKind}"
+                   VerticalAlignment="Center" />
+        <ComboBox Grid.Row="0"
+                  Grid.Column="2"
+                  SelectedIndex="0"
+                  ItemsSource="{Binding Source={StaticResource connectionKindsEnum}}"
+                  SelectedItem="{Binding Path=ConnectionKind, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Type -->
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionType}"
+                   VerticalAlignment="Center" />
+        <ComboBox Grid.Row="2"
+                  Grid.Column="2"
+                  SelectedIndex="0"
+                  ItemsSource="{Binding Source={StaticResource connectionTypesEnum}}"
+                  SelectedItem="{Binding Path=ConnectionType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Name -->
+        <TextBlock Grid.Row="4"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionName}"
+                   VerticalAlignment="Center" />
+        <TextBox Grid.Row="4"
+                 Grid.Column="2"
+                 Text="{Binding Path=Connection.ConnectionSettings.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Host -->
+        <TextBlock Grid.Row="6"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionHost}"
+                   VerticalAlignment="Center" />
+        <TextBox Grid.Row="6"
+                 Grid.Column="2"
+                 Text="{Binding Path=Connection.ConnectionSettings.Host, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Port -->
+        <TextBlock Grid.Row="8"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionPort}"
+                   VerticalAlignment="Center" />
+        <TextBox Grid.Row="8"
+                 Grid.Column="2"
+                 Text="{Binding Path=Connection.ConnectionSettings.Port, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Username -->
+        <TextBlock Grid.Row="10"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionUsername}"
+                   VerticalAlignment="Center" />
+        <TextBox Grid.Row="10"
+                 Grid.Column="2"
+                 Text="{Binding Path=Connection.ConnectionSettings.UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Password -->
+        <TextBlock Grid.Row="12"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionPassword}"
+                   VerticalAlignment="Center" />
+        <TextBox Grid.Row="12"
+                 Grid.Column="2"
+                 Text="{Binding Path=Connection.ConnectionSettings.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Connection-Timeout -->
+        <TextBlock Grid.Row="14"
+                   Grid.Column="0"
+                   Text="{lex:Loc ConnectionManagementConnectionTimeout}"
+                   VerticalAlignment="Center" />
+        <TextBox Grid.Row="14"
+                 Grid.Column="2"
+                 Text="{Binding Path=Connection.ConnectionSettings.Timeout, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+    </Grid>
+</UserControl>

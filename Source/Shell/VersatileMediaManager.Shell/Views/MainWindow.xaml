@@ -1,0 +1,85 @@
+﻿<metro:MetroWindow x:Class="VersatileMediaManager.Shell.Views.MainWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:local="clr-namespace:VersatileMediaManager.Shell"
+                   xmlns:infConstants="clr-namespace:VersatileMediaManager.Infrastructure.Contracts.Constants;assembly=VersatileMediaManager.Infrastructure.Contracts"
+                   xmlns:prism="http://prismlibrary.com/"
+                   prism:ViewModelLocator.AutoWireViewModel="True"
+                   xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                   xmlns:behaviors="clr-namespace:VersatileMediaManager.Shell.Behaviors"
+                   behaviors:RegionPopupBehaviors.CreatePopupRegionWithName="{x:Static infConstants:RegionNames.DialogPopupRegion}"
+                   behaviors:RegionPopupBehaviors.ContainerWindowStyle="{StaticResource RegionPopupWindowStyle}"
+                   ShowIconOnTitleBar="True"
+                   ShowTitleBar="True"
+                   EnableDWMDropShadow="True"
+                   ResizeMode="CanResizeWithGrip"
+                   WindowStartupLocation="CenterScreen"
+                   GlowBrush="{DynamicResource AccentColorBrush}"
+                   NonActiveGlowBrush="Red"
+                   mc:Ignorable="d"
+                   Title="Versatile Media Manager" Height="1024" Width="1280">
+
+    <!-- Left-Window Commands -->
+    <metro:MetroWindow.LeftWindowCommands>
+        <metro:WindowCommands x:Name="leftWindowCommandsRegion" />
+    </metro:MetroWindow.LeftWindowCommands>
+
+    <!-- Right-Window Commands -->
+    <metro:MetroWindow.RightWindowCommands>
+        <metro:WindowCommands x:Name="rightWindowCommandsRegion" />
+    </metro:MetroWindow.RightWindowCommands>
+
+    <!-- Flyouts -->
+    <metro:MetroWindow.Flyouts>
+        <metro:FlyoutsControl x:Name="flyoutsRegion" />
+    </metro:MetroWindow.Flyouts>
+
+    <metro:MetroContentControl>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <StackPanel Margin="0,10,0,0" Grid.Row="0">
+                <StackPanel Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="32"
+                                   Height="32"
+                                   Fill="{DynamicResource AccentColorBrush}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                                             Visual="{StaticResource appbar_home_empty}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                        <Label Margin="4 0 0 0"
+                               Style="{DynamicResource LabelHeader1}"
+                               VerticalAlignment="Center"
+                               Content="Versatile Media Manager Home" />
+                    </StackPanel>
+                </StackPanel>
+
+                <Rectangle Margin="2,3,2,3"
+                           HorizontalAlignment="Stretch"
+                           Fill="{DynamicResource AccentColorBrush}"
+                           Height="4" />
+            </StackPanel>
+
+            <!-- Main-Region -->
+            <ItemsControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.MainRegion}" />
+
+            <!-- Status-Bar -->
+            <StatusBar Grid.Row="2">
+                <StatusBarItem>Versatile Media Manager</StatusBarItem>
+                <Separator Style="{StaticResource MetroStatusBarSeparator}" />
+                <StatusBarItem Content="{Binding Path=StatusBarMessage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </StatusBar>
+        </Grid>
+    </metro:MetroContentControl>
+</metro:MetroWindow>

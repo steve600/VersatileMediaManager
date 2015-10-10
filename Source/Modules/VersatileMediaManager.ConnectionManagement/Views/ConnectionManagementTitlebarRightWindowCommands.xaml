@@ -1,0 +1,32 @@
+﻿<StackPanel x:Class="VersatileMediaManager.ConnectionManagement.Views.ConnectionManagementTitlebarRightWindowCommands"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:constants="clr-namespace:VersatileMediaManager.Infrastructure.Contracts.Constants;assembly=VersatileMediaManager.Infrastructure.Contracts"
+            xmlns:inf="clr-namespace:VersatileMediaManager.Infrastructure;assembly=VersatileMediaManager.Infrastructure"
+            xmlns:local="clr-namespace:VersatileMediaManager.ConnectionManagement.Views"
+            xmlns:lex="http://wpflocalizeextension.codeplex.com"
+            lex:LocalizeDictionary.DesignCulture="de"
+            lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.ConnectionManagement"
+            lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+            VerticalAlignment="Center"
+            mc:Ignorable="d"
+            d:DesignHeight="300" d:DesignWidth="300">
+
+    <Button Command="{x:Static inf:ApplicationCommands.ShowFlyoutCommand}"
+            CommandParameter="{x:Static constants:FlyoutNames.ConnectionFlyout}">
+        <StackPanel Orientation="Horizontal">
+            <Rectangle Width="20" Height="20"
+                       Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill"
+                                 Visual="{StaticResource appbar_connect}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+            <TextBlock Margin="4 0 0 0"
+                       VerticalAlignment="Center"
+                       Text="{lex:Loc Key=ConnectionManagementFlyoutHeader}" />
+        </StackPanel>
+    </Button>
+</StackPanel>

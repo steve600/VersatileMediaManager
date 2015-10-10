@@ -1,0 +1,39 @@
+﻿<metro:Flyout x:Class="VersatileMediaManager.KodiManagement.Views.MovieLibraryManagementFlyout"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:local="clr-namespace:VersatileMediaManager.KodiManagement.Views"
+              xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+              xmlns:constants="clr-namespace:VersatileMediaManager.Infrastructure.Contracts.Constants;assembly=VersatileMediaManager.Infrastructure.Contracts"
+              xmlns:userControls="clr-namespace:VersatileMediaManager.KodiManagement.UserControls"
+              xmlns:lex="http://wpflocalizeextension.codeplex.com"
+              lex:LocalizeDictionary.DesignCulture="de"
+              lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.KodiManagement"
+              lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+              IsOpen="{Binding Path=IsOpen, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+              Position="Right"
+              Theme="Accent"
+              AnimateOpacity="True"
+              Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=metro:MetroWindow}, Path=ActualWidth, Mode=OneWay}"
+              Header="{lex:Loc Key=MovieLibraryManagementFlyoutHeader}"
+              mc:Ignorable="d"
+              d:DesignHeight="300"
+              d:DesignWidth="300">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox ItemsSource="{Binding Path=Movies, UpdateSourceTrigger=PropertyChanged}"
+                     ScrollViewer.IsDeferredScrollingEnabled="True"
+                     Background="Transparent">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <userControls:MovieListViewEntry Movie="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</metro:Flyout>

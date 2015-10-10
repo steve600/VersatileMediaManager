@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="VersatileMediaManager.PvrManagement.Views.PvrManagementHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:VersatileMediaManager.PvrManagement.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             lex:LocalizeDictionary.DesignCulture="de"
+             lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.PvrManagement"
+             lex:ResxLocalizationProvider.DefaultDictionary="Resources"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <!-- Icon -->
+            <Rectangle Width="28"
+                       Height="28"
+                       Fill="{DynamicResource AccentColorBrush}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill"
+                                 Visual="{StaticResource appbar_monitor_film}" />
+                </Rectangle.OpacityMask>
+            </Rectangle>
+
+            <TextBlock Margin="5,0,0,0" Style="{DynamicResource TextBlockHeader2}" Text="{lex:Loc Key=PvrManagementHomeHeader}" />
+        </StackPanel>
+
+        <Rectangle Grid.Row="1"
+                   Margin="2,3,80,3"
+                   HorizontalAlignment="Stretch"
+                   Fill="{DynamicResource AccentColorBrush}"
+                   Height="2" />
+
+        <TextBlock Grid.Row="2" Text="Not yet implemented" />
+    </Grid>
+</UserControl>
