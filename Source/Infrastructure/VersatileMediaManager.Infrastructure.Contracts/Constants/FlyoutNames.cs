@@ -12,7 +12,9 @@
 
         // Kodi-Management flyouts
         public static string KodiManagementFlyout = "KodiManagementFlyout";
-
         public static string KodiMovieLibraryManagementFlyout = "KodiMovieLibraryManagementFlyout";
+
+        // PVR-Management flyouts
+        public static string PvrManagementFlyout = "PvrManagementFlyout";
     }
 }

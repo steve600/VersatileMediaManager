@@ -5,6 +5,7 @@
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:local="clr-namespace:VersatileMediaManager.Shell"
                    xmlns:infConstants="clr-namespace:VersatileMediaManager.Infrastructure.Contracts.Constants;assembly=VersatileMediaManager.Infrastructure.Contracts"
+                   xmlns:infConverter="clr-namespace:VersatileMediaManager.Infrastructure.Converter;assembly=VersatileMediaManager.Infrastructure"
                    xmlns:prism="http://prismlibrary.com/"
                    prism:ViewModelLocator.AutoWireViewModel="True"
                    xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
@@ -19,8 +20,13 @@
                    GlowBrush="{DynamicResource AccentColorBrush}"
                    NonActiveGlowBrush="Red"
                    mc:Ignorable="d"
+                   FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
                    Title="Versatile Media Manager" Height="1024" Width="1280">
 
+    <metro:MetroWindow.Resources>
+        <infConverter:FlyoutHeightConverter x:Key="flyoutHeightConverter" />
+    </metro:MetroWindow.Resources>
+    
     <!-- Left-Window Commands -->
     <metro:MetroWindow.LeftWindowCommands>
         <metro:WindowCommands x:Name="leftWindowCommandsRegion" />
@@ -75,7 +81,7 @@
             <ItemsControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static infConstants:RegionNames.MainRegion}" />
 
             <!-- Status-Bar -->
-            <StatusBar Grid.Row="2">
+            <StatusBar Grid.Row="2" Height="30">
                 <StatusBarItem>Versatile Media Manager</StatusBarItem>
                 <Separator Style="{StaticResource MetroStatusBarSeparator}" />
                 <StatusBarItem Content="{Binding Path=StatusBarMessage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />

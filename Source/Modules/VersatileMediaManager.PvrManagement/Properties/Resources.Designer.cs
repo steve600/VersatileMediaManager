@@ -61,6 +61,15 @@ namespace VersatileMediaManager.PvrManagement.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @PvrManagementFlyoutHeader ähnelt.
+        /// </summary>
+        internal static string PvrManagementFlyoutHeader {
+            get {
+                return ResourceManager.GetString("PvrManagementFlyoutHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die @PvrManagementHomeHeader ähnelt.
         /// </summary>
         internal static string PvrManagementHomeHeader {

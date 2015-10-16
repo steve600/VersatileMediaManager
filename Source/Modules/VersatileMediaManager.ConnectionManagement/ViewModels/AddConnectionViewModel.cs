@@ -81,17 +81,20 @@ namespace VersatileMediaManager.ConnectionManagement.ViewModels
             {
                 var connection = this.connectionManager.CreateConnection(this.ConnectionKind.Value, this.ConnectionType.Value);
 
-                // Apply settings for the new connection
-                this.ConnectionKind = connection.ConnectionSettings.ConnectionKind;
-                this.ConnectionType = connection.ConnectionSettings.ConnectionType;
-                connection.ConnectionSettings.Name = this.NewConnection?.ConnectionSettings.Name ?? string.Empty;
-                connection.ConnectionSettings.Host = this.NewConnection?.ConnectionSettings.Host ?? string.Empty;
-                connection.ConnectionSettings.Port = this.NewConnection?.ConnectionSettings.Port ?? default(int);
-                connection.ConnectionSettings.UserName = this.NewConnection?.ConnectionSettings.UserName ?? string.Empty;
-                connection.ConnectionSettings.Password = this.NewConnection?.ConnectionSettings.Password ?? string.Empty;
-                connection.ConnectionSettings.Timeout = this.NewConnection?.ConnectionSettings.Timeout ?? 10000;
+                if (connection != null)
+                {
+                    // Apply settings for the new connection
+                    this.ConnectionKind = connection.ConnectionSettings.ConnectionKind;
+                    this.ConnectionType = connection.ConnectionSettings.ConnectionType;
+                    connection.ConnectionSettings.Name = this.NewConnection?.ConnectionSettings.Name ?? string.Empty;
+                    connection.ConnectionSettings.Host = this.NewConnection?.ConnectionSettings.Host ?? string.Empty;
+                    connection.ConnectionSettings.Port = this.NewConnection?.ConnectionSettings.Port ?? default(int);
+                    connection.ConnectionSettings.UserName = this.NewConnection?.ConnectionSettings.UserName ?? string.Empty;
+                    connection.ConnectionSettings.Password = this.NewConnection?.ConnectionSettings.Password ?? string.Empty;
+                    connection.ConnectionSettings.Timeout = this.NewConnection?.ConnectionSettings.Timeout ?? 10000;
 
-                this.NewConnection = connection;
+                    this.NewConnection = connection;
+                }
             }
         }
 

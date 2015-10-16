@@ -30,35 +30,50 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro, Version=1.1.3.196, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MahApps.Metro.1.1.3-ALPHA196\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MaterialDesignThemes.1.1.1-ci249\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Prism, Version=6.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Prism.Core.6.0.1\lib\net45\Prism.dll</HintPath>
+    <Reference Include="Prism, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Prism.Wpf, Version=6.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Prism.Wpf.6.0.1\lib\net45\Prism.Wpf.dll</HintPath>
+    <Reference Include="Prism.Wpf, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Prism.Wpf.6.1.0\lib\net45\Prism.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\MahApps.Metro.1.1.3-ALPHA196\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -84,7 +99,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\Enigma2WebInterfaceQueuingService.cs" />
+    <Compile Include="UserControls\DeviceInfoCard.xaml.cs">
+      <DependentUpon>DeviceInfoCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PvrManagementInfo.xaml.cs">
+      <DependentUpon>PvrManagementInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PvrManagementFlyoutViewModel.cs" />
     <Compile Include="ViewModels\PvrManagementHomeViewModel.cs" />
+    <Compile Include="Views\PvrManagementFlyout.xaml.cs">
+      <DependentUpon>PvrManagementFlyout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PvrManagementHome.xaml.cs">
       <DependentUpon>PvrManagementHome.xaml</DependentUpon>
     </Compile>
@@ -98,6 +124,10 @@
       <Project>{80f30acc-9c52-4c96-ab52-fbe8c82d66f4}</Project>
       <Name>VersatileMediaManager.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\VersatileMediaManager.Communication\VersatileMediaManager.Communication.csproj">
+      <Project>{33558da5-26f6-460f-acef-aa16262409cc}</Project>
+      <Name>VersatileMediaManager.Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\VersatileMediaManager.Infrastructure.Contracts\VersatileMediaManager.Infrastructure.Contracts.csproj">
       <Project>{d1919d73-7d26-4b6d-98af-e9d37ca339fd}</Project>
       <Name>VersatileMediaManager.Infrastructure.Contracts</Name>
@@ -106,13 +136,39 @@
       <Project>{0efe5751-3ecf-4173-a21a-038b909a1b72}</Project>
       <Name>VersatileMediaManager.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VersatileMediaManager.ConnectionManagement.Contracts\VersatileMediaManager.ConnectionManagement.Contracts.csproj">
+      <Project>{d8be349a-29b3-40ef-8a9f-e3abd68bd2f7}</Project>
+      <Name>VersatileMediaManager.ConnectionManagement.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VersatileMediaManager.PvrManagement.Contracts\VersatileMediaManager.PvrManagement.Contracts.csproj">
+      <Project>{4fe82812-998c-43f1-8748-934ecc4feac9}</Project>
+      <Name>VersatileMediaManager.PvrManagement.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Styling\Styles\" />
-    <Folder Include="Styling\Templates\" />
-    <Folder Include="UserControls\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Styling\LookAndFeel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styling\Templates\Tiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DeviceInfoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PvrManagementInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PvrManagementFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PvrManagementHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

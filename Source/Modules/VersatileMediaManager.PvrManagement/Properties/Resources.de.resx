@@ -100,4 +100,7 @@
   <data name="PvrManagementHomeHeader" xml:space="preserve">
     <value>PVR-Management</value>
   </data>
+  <data name="PvrManagementFlyoutHeader" xml:space="preserve">
+    <value>PVR-Management</value>
+  </data>
 </root>

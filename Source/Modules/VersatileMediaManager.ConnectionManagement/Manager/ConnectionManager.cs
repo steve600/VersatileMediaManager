@@ -60,6 +60,9 @@ namespace VersatileMediaManager.ConnectionManagement.Manager
                     case ConnectionKindsEnum.KodiMediaPlayer:
                         Infrastructure.ApplicationCommands.ShowFlyoutCommand.Execute(FlyoutNames.KodiManagementFlyout);
                         break;
+                    case ConnectionKindsEnum.Enigma2WebInterface:
+                        Infrastructure.ApplicationCommands.ShowFlyoutCommand.Execute(FlyoutNames.PvrManagementFlyout);
+                        break;
                 }
             }
         }

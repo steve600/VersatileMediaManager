@@ -1,6 +1,6 @@
 ﻿using Prism.Mvvm;
 
-namespace VersatileMediaManager.KodiManagement.Contracts.Model.Items.Details
+namespace VersatileMediaManager.Base
 {
     public class ModelBase : BindableBase
     {

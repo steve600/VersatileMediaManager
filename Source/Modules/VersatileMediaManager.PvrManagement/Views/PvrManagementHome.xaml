@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:VersatileMediaManager.PvrManagement.Views"
+             xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:inf="clr-namespace:VersatileMediaManager.Infrastructure;assembly=VersatileMediaManager.Infrastructure"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
              lex:LocalizeDictionary.DesignCulture="de"
              lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.PvrManagement"
@@ -40,6 +42,28 @@
                    Fill="{DynamicResource AccentColorBrush}"
                    Height="2" />
 
-        <TextBlock Grid.Row="2" Text="Not yet implemented" />
+        <ItemsControl Grid.Row="2"
+                      HorizontalAlignment="Left"
+                      ItemsSource="{Binding Path=Connections, UpdateSourceTrigger=PropertyChanged}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <metro:Tile Content="{Binding}"
+                                ContentTemplate="{StaticResource PvrConnectionTileTemplate}"
+                                VerticalContentAlignment="Top"
+                                HorizontalContentAlignment="Left"
+                                HorizontalAlignment="Left"
+                                Command="{x:Static inf:ApplicationCommands.OpenConnectionCommand}"
+                                CommandParameter="{Binding}"
+                                TiltFactor="1"
+                                Width="180"
+                                Height="110" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>

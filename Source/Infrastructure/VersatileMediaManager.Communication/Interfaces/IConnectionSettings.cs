@@ -7,7 +7,8 @@ namespace VersatileMediaManager.Communication.Interfaces
     /// </summary>
     public enum ConnectionKindsEnum
     {
-        KodiMediaPlayer
+        KodiMediaPlayer,
+        Enigma2WebInterface
     }
 
     /// <summary>
@@ -15,7 +16,8 @@ namespace VersatileMediaManager.Communication.Interfaces
     /// </summary>
     public enum ConnectionTypesEnum
     {
-        JsonRpcHttp
+        JsonRpcHttp,
+        Http
     }
 
     /// <summary>

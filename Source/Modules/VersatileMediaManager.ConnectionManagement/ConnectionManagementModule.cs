@@ -21,7 +21,7 @@ namespace VersatileMediaManager.ConnectionManagement
         public ConnectionManagementModule(IUnityContainer unityContainer, IRegionManager regionManager) :
             base(unityContainer, regionManager)
         {
-            unityContainer.RegisterType<IConnectionFactory, ConnectionFactory>();
+            unityContainer.RegisterType<IConnectionFactory, ConnectionFactory>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<IConnectionManager, ConnectionManager>(GlobalConstants.ConnectionManager, new ContainerControlledLifetimeManager());
 
             regionManager.RegisterViewWithRegion(RegionNames.RightWindowCommandsRegion, typeof(Views.ConnectionManagementTitlebarRightWindowCommands));

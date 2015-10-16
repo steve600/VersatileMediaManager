@@ -23,7 +23,6 @@
             </Rectangle.OpacityMask>
         </Rectangle>
     </Button>
-
     <Button Command="{x:Static inf:ApplicationCommands.ShowApplicationInfoCommand}"
             ToolTip="Info">
         <Rectangle Width="22"

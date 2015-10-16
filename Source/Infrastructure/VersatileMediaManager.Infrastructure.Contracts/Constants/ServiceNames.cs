@@ -19,5 +19,7 @@
 
         // DataServices
         public const string KodiMovieLibraryManagementJsonService = "KodiMovieLibraryManagementJsonService";
+
+        public const string Enigma2WebInterfaceQueuingService = "Enigma2WebInterfaceQueuingService";
     }
 }

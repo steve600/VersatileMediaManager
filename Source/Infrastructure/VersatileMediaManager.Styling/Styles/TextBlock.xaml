@@ -31,4 +31,12 @@
         <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
         <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}" />
     </Style>
+
+    <Style x:Key="TextBlockCardHeader1White" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="FontSize" Value="32" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+        <Setter Property="Foreground" Value="{DynamicResource WhiteBrush}" />
+    </Style>
+
 </ResourceDictionary>
