@@ -103,4 +103,37 @@
   <data name="PvrManagementFlyoutHeader" xml:space="preserve">
     <value>PVR-Management</value>
   </data>
+  <data name="DeviceInfoCardInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="DeviceInfoCardDeviceName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="DeviceInfoCardEnigmaVersion" xml:space="preserve">
+    <value>Enigma-Version</value>
+  </data>
+  <data name="DeviceInfoCardImageVersion" xml:space="preserve">
+    <value>Image-Version</value>
+  </data>
+  <data name="DeviceInfoCardWebIfVersion" xml:space="preserve">
+    <value>Web-Interface</value>
+  </data>
+  <data name="DeviceInfoCardTuner" xml:space="preserve">
+    <value>Tuner</value>
+  </data>
+  <data name="DeviceInfoCardHdd" xml:space="preserve">
+    <value>Festplatte</value>
+  </data>
+  <data name="TimerListCardTimerListHeader" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="AddTimerPopupTimerName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AddTimerPopupTimerDescription" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="AddTimerPopupTimerChannel" xml:space="preserve">
+    <value>Kanal</value>
+  </data>
 </root>

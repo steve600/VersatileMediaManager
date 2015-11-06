@@ -125,6 +125,5 @@ namespace VersatileMediaManager.PvrManagement.Contracts.Model.Enigma2
             get { return afterEvent; }
             set { afterEvent = value; }
         }
-
     }
 }

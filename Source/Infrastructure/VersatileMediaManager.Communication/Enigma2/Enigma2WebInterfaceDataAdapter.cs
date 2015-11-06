@@ -13,12 +13,15 @@ namespace VersatileMediaManager.Communication.Enigma2
     public enum Enigma2WebInterfacesMethods
     {
         GetDeviceInfo,
+        GetLocationList,
+        GetCurrentLocation,
+        GetServiceList,
         GetTimerList,
         AddTimer,
         DeleteTimer
     }
 
-    public class Enigma2WebInterfaceDataAdapter<T> : IDataAdapter<T, Enigma2WebInterfacesMethods, string, object, IDictionary<string, object>>, IDisposable
+    public class Enigma2WebInterfaceDataAdapter<T> : IDataAdapter<T, Enigma2WebInterfacesMethods, IDictionary<string, string>, object, object>, IDisposable
     {
         #region CTOR
 
@@ -85,12 +88,60 @@ namespace VersatileMediaManager.Communication.Enigma2
             return result;
         }
 
-        public T Execute(string uri, IDictionary<string, object> t5)
+        public T Execute(Enigma2WebInterfacesMethods method, IDictionary<string, string> parameters)
+        {
+            T result = default(T);
+            string p = "?";
+
+            try
+            {
+                // Check parameters
+                if (parameters != null && parameters.Count > 0)
+                {
+                    foreach (var d in parameters)
+                    {
+                        p += d.Key + "=" + d.Value;
+                    }
+                }
+
+                string uri = this.GetPostUri(method) + p;
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+
+                request.KeepAlive = false;
+                request.Method = "POST";
+                //request.Timeout = this.Connection.ConnectionSettings.Timeout;
+
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (Stream responseStream = response.GetResponseStream())
+                    {
+                        using (StreamReader responseReader = new StreamReader(responseStream, Encoding.UTF8))
+                        {
+                            //string resultString = responseReader.ReadToEnd();
+
+                            // Deserialize XML
+                            XmlSerializer xSerializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
+
+                            result = (T)xSerializer.Deserialize(responseReader);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return result;
+        }
+
+        public T Execute(IDictionary<string, string> t3, object t4)
         {
             throw new NotImplementedException();
         }
 
-        public T Execute(string t3, object t4)
+        public T Execute(object t4, object t5)
         {
             throw new NotImplementedException();
         }
@@ -122,6 +173,15 @@ namespace VersatileMediaManager.Communication.Enigma2
             {
                 case Enigma2WebInterfacesMethods.GetDeviceInfo:
                     result = this.Connection.ConnectionSettings.URIString + "/web/deviceinfo";
+                    break;
+                case Enigma2WebInterfacesMethods.GetServiceList:
+                    result = this.Connection.ConnectionSettings.URIString + "/web/getservices";
+                    break;
+                case Enigma2WebInterfacesMethods.GetLocationList:
+                    result = this.Connection.ConnectionSettings.URIString + "/web/getlocations";
+                    break;
+                case Enigma2WebInterfacesMethods.GetCurrentLocation:
+                    result = this.Connection.ConnectionSettings.URIString + "/web/getcurrlocation";
                     break;
                 case Enigma2WebInterfacesMethods.GetTimerList:
                     result = this.Connection.ConnectionSettings.URIString + "/web/timerlist";

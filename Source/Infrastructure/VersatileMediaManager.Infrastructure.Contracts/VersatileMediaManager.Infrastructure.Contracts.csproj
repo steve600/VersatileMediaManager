@@ -56,6 +56,7 @@
     <Compile Include="Constants\LoggingCategories.cs" />
     <Compile Include="Constants\RegionNames.cs" />
     <Compile Include="Constants\ServiceNames.cs" />
+    <Compile Include="Constants\ViewNames.cs" />
     <Compile Include="Events\UpdateStatusBarMessageEvent.cs" />
     <Compile Include="Interfaces\IConfigurationFile.cs" />
     <Compile Include="Interfaces\IFlyoutService.cs" />

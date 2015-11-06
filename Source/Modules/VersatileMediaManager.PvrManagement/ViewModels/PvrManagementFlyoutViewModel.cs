@@ -7,6 +7,9 @@ using VersatileMediaManager.PvrManagement.Contracts.Model.Enigma2;
 using System.Xml.Serialization;
 using System.IO;
 using VersatileMediaManager.PvrManagement.Contracts.Interfaces;
+using Prism.Commands;
+using System.Linq;
+using System;
 
 namespace VersatileMediaManager.PvrManagement.ViewModels
 {
@@ -21,15 +24,6 @@ namespace VersatileMediaManager.PvrManagement.ViewModels
         public PvrManagementFlyoutViewModel()
         {
             this.webInterfaceQueuingService = this.UnityContainer.Resolve<IEnigma2WebInterfaceQueuingService>(ServiceNames.Enigma2WebInterfaceQueuingService);
-
-            //this.connectionManager = this.UnityContainer.Resolve<IConnectionManager>(GlobalConstants.ConnectionManager);
-
-            //Enigma2WebInterfaceDataAdapter<DeviceInfo> da = new Enigma2WebInterfaceDataAdapter<DeviceInfo>(this.connectionManager.ActiveConnection);
-
-            //DeviceInfo test = da.Execute(Enigma2WebInterfacesMethods.GetTimerList);
-
-            //System.Diagnostics.Debug.WriteLine(test);
-
         }
 
         /// <summary>
@@ -38,6 +32,7 @@ namespace VersatileMediaManager.PvrManagement.ViewModels
         private void LoadData()
         {
             this.DeviceInfo = this.webInterfaceQueuingService.GetDeviceInfo();
+            this.TimerList = this.webInterfaceQueuingService.GetTimerList();
         }
 
         #region Properties
@@ -57,8 +52,20 @@ namespace VersatileMediaManager.PvrManagement.ViewModels
                     if (this.IsOpen)
                     {
                         this.LoadData();
+                        OnPropertyChanged(() => this.ActiveConnection);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Active connection
+        /// </summary>
+        public IConnection ActiveConnection
+        {
+            get
+            {
+                return this.UnityContainer.Resolve<IConnectionManager>(GlobalConstants.ConnectionManager)?.ActiveConnection;
             }
         }
 
@@ -73,6 +80,16 @@ namespace VersatileMediaManager.PvrManagement.ViewModels
             set { SetProperty<DeviceInfo>(ref this.deviceInfo, value); }
         }
 
+        private TimerList timerList;
+
+        /// <summary>
+        /// List with timer entries
+        /// </summary>
+        public TimerList TimerList
+        {
+            get { return timerList; }
+            set { SetProperty<TimerList>(ref this.timerList, value); }
+        }
 
         #endregion Properties
     }

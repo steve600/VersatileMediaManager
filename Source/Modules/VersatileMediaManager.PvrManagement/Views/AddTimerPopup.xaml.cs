@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VersatileMediaManager.PvrManagement.UserControls
+namespace VersatileMediaManager.PvrManagement.Views
 {
     /// <summary>
-    /// Interaktionslogik für PvrManagementInfo.xaml
+    /// Interaktionslogik für AddTimerPopup.xaml
     /// </summary>
-    public partial class PvrManagementInfo : UserControl
+    public partial class AddTimerPopup : UserControl
     {
-        public PvrManagementInfo()
+        public AddTimerPopup()
         {
             InitializeComponent();
         }

@@ -17,6 +17,9 @@ namespace VersatileMediaManager.HelpAndInfo
         {
             // Register views
             regionManager.RegisterViewWithRegion(RegionNames.RightWindowCommandsRegion, typeof(Views.ShellTitlebarRightWindowCommands));
+
+            // Register for navigation
+            Prism.Unity.UnityExtensions.RegisterTypeForNavigation<Views.SystemInfo>(unityContainer, ViewNames.SystemInformationView);
         }
     }
 }

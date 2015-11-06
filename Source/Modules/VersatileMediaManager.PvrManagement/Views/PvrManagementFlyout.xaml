@@ -44,7 +44,7 @@
                         </ListBox.ItemTemplate>
                         <model:PvrManagementMenuItem Name="Info">
                             <model:PvrManagementMenuItem.Content>
-                                <userControls:PvrManagementInfo />
+                                <local:PvrManagementInfo />
                             </model:PvrManagementMenuItem.Content>
                         </model:PvrManagementMenuItem>
                     </ListBox>
@@ -59,9 +59,10 @@
                         <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                                       IsChecked="False"
                                       x:Name="MenuToggleButton"/>
-                        <TextBlock HorizontalAlignment="Center" 
+                        <TextBlock Text="{Binding Path=ActiveConnection.ConnectionSettings.Name, UpdateSourceTrigger=PropertyChanged}"
+                                   HorizontalAlignment="Center" 
                                    VerticalAlignment="Center" 
-                                   FontSize="22">VU+ Solo 2</TextBlock>
+                                   FontSize="22" />
                     </DockPanel>
                 </material:ColorZone>
                 <ContentControl Margin="16" Content="{Binding ElementName=pvrManagementMenuItems, Path=SelectedItem.Content}" />

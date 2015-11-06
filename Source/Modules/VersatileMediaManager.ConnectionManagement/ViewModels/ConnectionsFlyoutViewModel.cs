@@ -70,10 +70,12 @@ namespace VersatileMediaManager.ConnectionManagement.ViewModels
         /// </summary>
         private void ShowAddConnectionDialog()
         {
-            var view = new Views.AddConnection();
+            this.RegionManager.RequestNavigate(RegionNames.DialogPopupRegion, ViewNames.AddConnectionView);
+            //var view = new Views.AddConnection();
 
-            this.RegionManager.AddToRegion(RegionNames.DialogPopupRegion, view);
-            this.RegionManager.Regions[RegionNames.DialogPopupRegion].Activate(view);
+            //Prism.Unity.UnityExtensions.RegisterTypeForNavigation<Views.AddConnection>(this.UnityContainer, RegionNames.DialogPopupRegion);
+            //this.RegionManager.AddToRegion(RegionNames.DialogPopupRegion, view);
+            //this.RegionManager.Regions[RegionNames.DialogPopupRegion].Activate(view);
         }
 
         /// <summary>

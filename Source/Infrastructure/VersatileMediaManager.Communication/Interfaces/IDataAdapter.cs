@@ -6,6 +6,8 @@ namespace VersatileMediaManager.Communication.Interfaces
     {
         T1 Execute(T2 t2);
 
+        T1 Execute(T2 t2, T3 t3);
+
         T1 Execute(T3 t3, T4 t4);
 
         T1 Execute(T3 t3, T5 t5);

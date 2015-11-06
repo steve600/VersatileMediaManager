@@ -26,6 +26,9 @@ namespace VersatileMediaManager.ConnectionManagement
 
             regionManager.RegisterViewWithRegion(RegionNames.RightWindowCommandsRegion, typeof(Views.ConnectionManagementTitlebarRightWindowCommands));
             regionManager.RegisterViewWithRegion(RegionNames.FlyoutRegion, typeof(Views.ConnectionsFlyout));
+
+            // Register views for navigation
+            Prism.Unity.UnityExtensions.RegisterTypeForNavigation<Views.AddConnection>(this.UnityContainer, ViewNames.AddConnectionView);
         }
 
         /// <summary>

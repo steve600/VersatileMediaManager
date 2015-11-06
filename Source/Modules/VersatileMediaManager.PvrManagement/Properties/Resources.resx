@@ -103,4 +103,37 @@
   <data name="PvrManagementFlyoutHeader" xml:space="preserve">
     <value>@PvrManagementFlyoutHeader</value>
   </data>
+  <data name="DeviceInfoCardInformation" xml:space="preserve">
+    <value>@DeviceInfoCardInformation</value>
+  </data>
+  <data name="DeviceInfoCardDeviceName" xml:space="preserve">
+    <value>@DeviceInfoCardDeviceName</value>
+  </data>
+  <data name="DeviceInfoCardEnigmaVersion" xml:space="preserve">
+    <value>@DeviceInfoCardEnigmaVersion</value>
+  </data>
+  <data name="DeviceInfoCardImageVersion" xml:space="preserve">
+    <value>@DeviceInfoCardImageVersion</value>
+  </data>
+  <data name="DeviceInfoCardWebIfVersion" xml:space="preserve">
+    <value>@DeviceInfoCardWebIfVersion</value>
+  </data>
+  <data name="DeviceInfoCardTuner" xml:space="preserve">
+    <value>@DeviceInfoCardTuner</value>
+  </data>
+  <data name="DeviceInfoCardHdd" xml:space="preserve">
+    <value>@DeviceInfoCardHdd</value>
+  </data>
+  <data name="TimerListCardTimerListHeader" xml:space="preserve">
+    <value>@TimerListCardTimerListHeader</value>
+  </data>
+  <data name="AddTimerPopupTimerName" xml:space="preserve">
+    <value>@AddTimerPopupTimerName</value>
+  </data>
+  <data name="AddTimerPopupTimerDescription" xml:space="preserve">
+    <value>@AddTimerPopupTimerDescription</value>
+  </data>
+  <data name="AddTimerPopupTimerChannel" xml:space="preserve">
+    <value>@AddTimerPopupTimerChannel</value>
+  </data>
 </root>

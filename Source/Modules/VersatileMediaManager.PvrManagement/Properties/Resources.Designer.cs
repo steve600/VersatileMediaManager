@@ -61,6 +61,96 @@ namespace VersatileMediaManager.PvrManagement.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @AddTimerPopupTimerChannel ähnelt.
+        /// </summary>
+        internal static string AddTimerPopupTimerChannel {
+            get {
+                return ResourceManager.GetString("AddTimerPopupTimerChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @AddTimerPopupTimerDescription ähnelt.
+        /// </summary>
+        internal static string AddTimerPopupTimerDescription {
+            get {
+                return ResourceManager.GetString("AddTimerPopupTimerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @AddTimerPopupTimerName ähnelt.
+        /// </summary>
+        internal static string AddTimerPopupTimerName {
+            get {
+                return ResourceManager.GetString("AddTimerPopupTimerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardDeviceName ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardDeviceName {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardDeviceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardEnigmaVersion ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardEnigmaVersion {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardEnigmaVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardHdd ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardHdd {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardHdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardImageVersion ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardImageVersion {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardImageVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardInformation ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardInformation {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardTuner ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardTuner {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardTuner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @DeviceInfoCardWebIfVersion ähnelt.
+        /// </summary>
+        internal static string DeviceInfoCardWebIfVersion {
+            get {
+                return ResourceManager.GetString("DeviceInfoCardWebIfVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die @PvrManagementFlyoutHeader ähnelt.
         /// </summary>
         internal static string PvrManagementFlyoutHeader {
@@ -75,6 +165,15 @@ namespace VersatileMediaManager.PvrManagement.Properties {
         internal static string PvrManagementHomeHeader {
             get {
                 return ResourceManager.GetString("PvrManagementHomeHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die @TimerListCardTimerListHeader ähnelt.
+        /// </summary>
+        internal static string TimerListCardTimerListHeader {
+            get {
+                return ResourceManager.GetString("TimerListCardTimerListHeader", resourceCulture);
             }
         }
     }

@@ -90,6 +90,8 @@
     <Compile Include="Base\VersatileMediaManagerViewModelBase.cs" />
     <Compile Include="Converter\Converters.cs" />
     <Compile Include="Converter\FlyoutHeightConverter.cs" />
+    <Compile Include="Converter\UnixDateTimeConverter.cs" />
+    <Compile Include="Helper\DateTimeHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FlyoutService.cs" />
     <Compile Include="Services\LoggingService.cs" />

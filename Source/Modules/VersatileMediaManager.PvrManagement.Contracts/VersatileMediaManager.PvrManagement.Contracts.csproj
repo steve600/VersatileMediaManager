@@ -51,11 +51,15 @@
     <Compile Include="Interfaces\IEnigma2WebInterfaceQueuingService.cs" />
     <Compile Include="Model\Enigma2\DeviceInfo.cs" />
     <Compile Include="Model\Enigma2\Hdd.cs" />
+    <Compile Include="Model\Enigma2\Location.cs" />
+    <Compile Include="Model\Enigma2\LocationList.cs" />
     <Compile Include="Model\Enigma2\NetworkInterface.cs" />
     <Compile Include="Model\Enigma2\Service.cs" />
     <Compile Include="Model\Enigma2\ServiceList.cs" />
     <Compile Include="Model\Enigma2\Timer.cs" />
+    <Compile Include="Model\Enigma2\TimerList.cs" />
     <Compile Include="Model\Enigma2\Tuner.cs" />
+    <Compile Include="Model\Enigma2\XmlResult.cs" />
     <Compile Include="Model\PvrManagementMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

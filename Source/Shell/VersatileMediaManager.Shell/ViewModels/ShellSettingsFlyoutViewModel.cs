@@ -1,4 +1,6 @@
 ﻿using MahApps.Metro;
+using MaterialDesignColors;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Practices.Unity;
 using System.Collections.Generic;
 using System.Globalization;
@@ -18,6 +20,8 @@ namespace VersatileMediaManager.Shell.ViewModels
 
         private IConfigurationFile applicationConfig = null;
         private ILocalizerService localizerService = null;
+
+        private IEnumerable<Swatch> Swatches = null;
 
         #endregion Members and Constants
 
@@ -42,6 +46,8 @@ namespace VersatileMediaManager.Shell.ViewModels
             this.AccentColors = ThemeManager.Accents
                                             .Select(a => new AccentColor() { Name = a.Name, ColorBrush = a.Resources["AccentColorBrush"] as Brush })
                                             .ToList();
+
+            this.Swatches = new SwatchesProvider().Swatches;
 
             // Language
             var languageTag = applicationConfig.Sections["GeneralSettings"].Settings["Language"].Value;
@@ -101,10 +107,25 @@ namespace VersatileMediaManager.Shell.ViewModels
                     var theme = ThemeManager.DetectAppStyle(Application.Current);
                     var appTheme = ThemeManager.GetAppTheme(value.Name);
                     ThemeManager.ChangeAppStyle(Application.Current, theme.Item2, appTheme);
-
+                   
                     this.applicationConfig.Sections["GeneralSettings"].Settings["Theme"].Value = value.Name;
                     this.applicationConfig.Save();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Set material design color
+        /// </summary>
+        private void SetMaterialDesignAccentColor()
+        {
+            var swatch = this.Swatches.Where(s => s.Name.ToUpper().Equals(this.SelectedAccentColor.Name.ToUpper())).FirstOrDefault();
+
+            if (swatch != null)
+            {
+                var ph = new PaletteHelper();
+                ph.ReplacePrimaryColor(swatch, true);
+                ph.ReplaceAccentColor(swatch);
             }
         }
 
@@ -123,6 +144,9 @@ namespace VersatileMediaManager.Shell.ViewModels
                     var theme = ThemeManager.DetectAppStyle(Application.Current);
                     var accent = ThemeManager.GetAccent(value.Name);
                     ThemeManager.ChangeAppStyle(Application.Current, accent, theme.Item1);
+
+                    // Set material design color
+                    SetMaterialDesignAccentColor();
 
                     this.applicationConfig.Sections["GeneralSettings"].Settings["AccentColor"].Value = value.Name;
                     this.applicationConfig.Save();

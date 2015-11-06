@@ -7,9 +7,13 @@
                xmlns:local="clr-namespace:VersatileMediaManager.PvrManagement.UserControls"
                xmlns:metro="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                xmlns:material="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+               xmlns:lex="http://wpflocalizeextension.codeplex.com"
+               lex:LocalizeDictionary.DesignCulture="de"
+               lex:ResxLocalizationProvider.DefaultAssembly="VersatileMediaManager.PvrManagement"
+               lex:ResxLocalizationProvider.DefaultDictionary="Resources"
                Background="{DynamicResource AccentColorBrush}"
                Width="350"
-               Height="250"
+               Height="205"
                mc:Ignorable="d" 
                d:DesignHeight="300" d:DesignWidth="300">
     <Grid Margin="4" DataContext="{Binding ElementName=layoutRoot}">
@@ -19,6 +23,14 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="3" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="3" />
             <RowDefinition Height="Auto" />
@@ -40,16 +52,15 @@
                                  Visual="{StaticResource appbar_information_circle}" />
                 </Rectangle.OpacityMask>
             </Rectangle>
-            <TextBlock Text="Information" 
+            <TextBlock Text="{lex:Loc Key=DeviceInfoCardInformation}" 
                        Margin="5,0,0,0"
                        Style="{StaticResource TextBlockCardHeader1White}"/>
-        </StackPanel>
-        
+        </StackPanel>        
 
         <!-- Device-Name -->
         <TextBlock Grid.Column="0"
                    Grid.Row="2"
-                   Text="Name" />
+                   Text="{lex:Loc Key=DeviceInfoCardDeviceName}" />
         <TextBlock Grid.Column="2"
                    Grid.Row="2"
                    Text="{Binding Path=DeviceInformation.DeviceName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
@@ -57,10 +68,64 @@
         <!-- Enigma-Version -->
         <TextBlock Grid.Column="0"
                    Grid.Row="4"
-                   Text="Name" />
+                   Text="{lex:Loc Key=DeviceInfoCardEnigmaVersion}" />
         <TextBlock Grid.Column="2"
                    Grid.Row="4"
                    Text="{Binding Path=DeviceInformation.EnigmaVersion, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Enigma-Version -->
+        <TextBlock Grid.Column="0"
+                   Grid.Row="6"
+                   Text="{lex:Loc Key=DeviceInfoCardImageVersion}" />
+        <TextBlock Grid.Column="2"
+                   Grid.Row="6"
+                   Text="{Binding Path=DeviceInformation.ImageVersion, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- WebIf-Version -->
+        <TextBlock Grid.Column="0"
+                   Grid.Row="8"
+                   Text="{lex:Loc Key=DeviceInfoCardWebIfVersion}" />
+        <TextBlock Grid.Column="2"
+                   Grid.Row="8"
+                   Text="{Binding Path=DeviceInformation.WebIfVersion, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+        <!-- Tuner -->
+        <TextBlock Grid.Column="0"
+                   Grid.Row="10"
+                   Text="{lex:Loc Key=DeviceInfoCardTuner}" />
+        <ItemsControl Grid.Column="2"
+                      Grid.Row="10"
+                      ItemsSource="{Binding Path=DeviceInformation.InstalledTuners, UpdateSourceTrigger=PropertyChanged}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"
+                                   FontWeight="SemiBold" />
+                        <TextBlock Text="{Binding Path=Model, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            
+        </ItemsControl>
+
+        <!-- HDD -->
+        <TextBlock Grid.Column="0"
+                   Grid.Row="12"
+                   Text="{lex:Loc Key=DeviceInfoCardHdd}" />
+        <ItemsControl Grid.Column="2"
+                      Grid.Row="12"
+                      ItemsSource="{Binding Path=DeviceInformation.InstalledHdds, UpdateSourceTrigger=PropertyChanged}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Path=Model, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding Path=Capacity, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
 
     </Grid>
 </material:Card>

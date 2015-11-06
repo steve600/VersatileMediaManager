@@ -19,6 +19,9 @@ namespace VersatileMediaManager.PvrManagement
         public PvrManagementModule(IUnityContainer unityContainer, IRegionManager regionManager) :
             base(unityContainer, regionManager)
         {
+            // Register PVR-Manamgent Commands
+            this.UnityContainer.RegisterType<IPvrManagementCommands, PvrManagementCommandsProxy>();
+
             // Register-Services
             this.UnityContainer.RegisterType<IEnigma2WebInterfaceQueuingService, Enigma2WebInterfaceQueuingService>(ServiceNames.Enigma2WebInterfaceQueuingService, new ContainerControlledLifetimeManager());
 
@@ -27,6 +30,9 @@ namespace VersatileMediaManager.PvrManagement
 
             // Register flyouts
             regionManager.RegisterViewWithRegion(RegionNames.FlyoutRegion, typeof(Views.PvrManagementFlyout));
+
+            // Register Popups
+            Prism.Unity.UnityExtensions.RegisterTypeForNavigation<Views.AddTimerPopup>(this.UnityContainer, ViewNames.AddTimerView);
         }
 
         /// <summary>

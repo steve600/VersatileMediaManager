@@ -44,10 +44,11 @@ namespace VersatileMediaManager.HelpAndInfo.ViewModels
         /// </summary>
         private void ShowApplicationInfo()
         {
-            var view = new Views.SystemInfo();
+            //var view = new Views.SystemInfo();
 
-            this.RegionManager.AddToRegion(RegionNames.DialogPopupRegion, view);
-            this.RegionManager.Regions[RegionNames.DialogPopupRegion].Activate(view);
+            //this.RegionManager.AddToRegion(RegionNames.DialogPopupRegion, view);
+            //this.RegionManager.Regions[RegionNames.DialogPopupRegion].Activate(view);
+            this.RegionManager.RequestNavigate(RegionNames.DialogPopupRegion, ViewNames.SystemInformationView);
         }
 
         #endregion Commands

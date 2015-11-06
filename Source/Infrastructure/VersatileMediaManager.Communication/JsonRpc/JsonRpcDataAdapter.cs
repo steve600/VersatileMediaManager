@@ -139,6 +139,17 @@ namespace VersatileMediaManager.Communication.JsonRpc
             return Execute(req);
         }
 
+        /// <summary>
+        /// Execute JSON RPC call
+        /// </summary>
+        /// <param name="method">The method</param>
+        /// <param name="arg">The param</param>
+        /// <returns></returns>
+        public T Execute(JsonRpcRequest request, string method)
+        {
+            throw new NotImplementedException();
+        }
+
         private IConnection connection = null;
 
         /// <summary>
