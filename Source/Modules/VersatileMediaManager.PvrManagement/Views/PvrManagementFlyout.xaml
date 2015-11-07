@@ -22,7 +22,7 @@
               Theme="Accent"
               AnimateOpacity="True"
               Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=metro:MetroWindow}, Path=ActualWidth, Mode=OneWay}"
-              Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=metro:MetroWindow}, Path=ActualHeight, Converter={x:Static infCnverter:Converters.FlyoutHeightConverter}, Mode=OneWay}"
+              Height="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=metro:MetroWindow}, Path=ActualHeight, Converter={x:Static infCnverter:Converter.FlyoutHeightConverter}, Mode=OneWay}"
               Header="{lex:Loc Key=PvrManagementFlyoutHeader}"
               d:DesignHeight="300" d:DesignWidth="300">
     <material:DialogHost Identifier="PvrManagement">

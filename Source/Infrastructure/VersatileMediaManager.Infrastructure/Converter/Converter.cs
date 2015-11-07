@@ -7,7 +7,7 @@ using System.Windows.Data;
 
 namespace VersatileMediaManager.Infrastructure.Converter
 {
-    public static class Converters
+    public static class Converter
     {
         public static IValueConverter FlyoutHeightConverter = new FlyoutHeightConverter();
     }
