@@ -4,8 +4,10 @@ using Prism.Modularity;
 using Prism.Regions;
 using Prism.Unity;
 using System;
+using System.Globalization;
 using System.Threading;
 using System.Windows;
+using System.Windows.Markup;
 using System.Windows.Threading;
 using VersatileMediaManager.Infrastructure;
 using VersatileMediaManager.Infrastructure.Contracts.Constants;
@@ -29,6 +31,14 @@ namespace VersatileMediaManager.Shell
         {
             Container.RegisterInstance(typeof(Window), GlobalConstants.MainWindowName, Container.Resolve<MainWindow>(), new ContainerControlledLifetimeManager());
             return Container.Resolve<Window>(GlobalConstants.MainWindowName);
+        }
+
+        public override void Run(bool runWithDefaultConfiguration)
+        {
+            base.Run(runWithDefaultConfiguration);
+
+            FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),
+                    new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
         }
 
         /// <summary>

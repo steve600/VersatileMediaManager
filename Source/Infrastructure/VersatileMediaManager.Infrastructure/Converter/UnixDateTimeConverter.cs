@@ -12,16 +12,14 @@ namespace VersatileMediaManager.Infrastructure.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null && value is long)
+            if (value != null)
             {
-                return DateTimeOffset.FromUnixTimeSeconds(System.Convert.ToInt64(value));
-                //DateTime result = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-                //double unixTime = System.Convert.ToDouble(value);
+                long seconds = 0;
 
-                //if (unixTime > 0)
-                //{
-                //    return result.AddSeconds(unixTime).ToLocalTime();
-                //}
+                if (long.TryParse(value.ToString(), out seconds))
+                {
+                    return DateTimeOffset.FromUnixTimeSeconds(System.Convert.ToInt64(seconds)).LocalDateTime;
+                }
             }
 
             return null;

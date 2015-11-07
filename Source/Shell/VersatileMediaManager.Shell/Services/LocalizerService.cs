@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Windows;
+using System.Windows.Markup;
 using VersatileMediaManager.Infrastructure.Contracts.Interfaces;
 using WPFLocalizeExtension.Engine;
 using WPFLocalizeExtension.Extensions;
@@ -27,7 +29,7 @@ namespace VersatileMediaManager.Shell.Services
         /// <param name="locale"></param>
         public void SetLocale(string locale)
         {
-            LocalizeDictionary.Instance.Culture = CultureInfo.GetCultureInfo(locale);
+            this.SetLocale(CultureInfo.GetCultureInfo(locale));
         }
 
         /// <summary>
